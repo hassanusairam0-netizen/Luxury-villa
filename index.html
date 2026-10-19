@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>The Art of Living — A Private Mediterranean Residence</title>
+    <meta name="description" content="An interactive, scroll-driven architectural walkthrough of a contemporary villa overlooking the Mediterranean. Architecture, nature and considered luxury — experienced from within." />
+    <meta name="theme-color" content="#efe8dc" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23efe8dc'/%3E%3Cpath d='M14 46h36M18 46V26h28v20M24 26V18h16v8' stroke='%235b4332' stroke-width='2.4' fill='none'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <a class="skip" href="#rooms-panel">Skip to room list</a>
+
+    <canvas id="scene" aria-hidden="true"></canvas>
+    <div class="veil veil--top" aria-hidden="true"></div>
+    <div class="veil veil--bottom" aria-hidden="true"></div>
+
+    <!-- Loading -->
+    <div id="loader" role="status" aria-live="polite">
+      <div class="loader__inner">
+        <p class="loader__mark">The Art of Living</p>
+        <div class="loader__bar"><span id="loader-fill"></span></div>
+        <p class="loader__status"><span id="loader-text">Preparing the residence</span> <span id="loader-pct">0%</span></p>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="top">
+      <p class="credit">made by Usairam Hassan</p>
+      <p class="wordmark" aria-label="The Art of Living">The Art of Living</p>
+      <button id="explore-btn" class="explore" aria-expanded="false" aria-controls="rooms-panel">
+        <span class="explore__icon" aria-hidden="true"><i></i><i></i></span>
+        <span>Explore Rooms</span>
+      </button>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Private Residence · Mediterranean Collection</p>
+      <h1 id="hero-title">A different way<br />to experience home.</h1>
+      <p class="hero__lede">“Architecture, nature, and considered luxury — experienced from within.”</p>
+    </section>
+    <div class="scroll-cue" id="scroll-cue" aria-hidden="true">
+      <span class="scroll-cue__line"><i></i></span>
+      <span>Scroll to enter</span>
+    </div>
+
+    <!-- Chapter card -->
+    <section class="chapter" id="chapter" aria-live="polite" aria-atomic="true">
+      <p class="chapter__kicker"><span id="ch-num"></span><span id="ch-name"></span></p>
+      <p class="chapter__quote" id="ch-quote"></p>
+      <p class="chapter__notes" id="ch-notes"></p>
+    </section>
+
+    <!-- Location indicator -->
+    <nav class="locator" id="locator" aria-label="Your position in the villa">
+      <p class="locator__label">The Villa</p>
+      <p class="locator__count"><span id="loc-num">01</span><span class="locator__sep">/</span><span id="loc-total">10</span></p>
+      <p class="locator__room" id="loc-room">The Arrival</p>
+      <div class="locator__track" aria-hidden="true">
+        <span class="locator__fill" id="loc-fill"></span>
+        <ol class="locator__ticks" id="loc-ticks"></ol>
+      </div>
+    </nav>
+
+    <!-- Finale -->
+    <section class="finale" id="finale" aria-labelledby="finale-title">
+      <p class="eyebrow">Golden Hour</p>
+      <h2 id="finale-title">A home beyond expectation.</h2>
+      <p class="finale__lede">“Not simply a place to live. A place to experience life differently.”</p>
+      <button class="restart" id="restart-btn">Restart the Experience</button>
+    </section>
+    <footer class="footer" id="footer">
+      <p>The Art of Living</p>
+      <p>Private Residence · Mediterranean Collection · An architectural concept</p>
+      <p>made by Usairam Hassan</p>
+    </footer>
+
+    <!-- Room selector -->
+    <div class="rooms" id="rooms-panel" role="dialog" aria-modal="true" aria-labelledby="rooms-title" hidden>
+      <div class="rooms__scrim" data-close></div>
+      <div class="rooms__sheet">
+        <div class="rooms__head">
+          <p class="eyebrow" id="rooms-title">Explore the Residence</p>
+          <button class="rooms__close" data-close aria-label="Close room list"><span aria-hidden="true">Close</span></button>
+        </div>
+        <ol class="rooms__list" id="rooms-list"></ol>
+        <p class="rooms__foot">Select a room to travel there through the villa, or close this list to continue scrolling.</p>
+      </div>
+    </div>
+
+    <!-- Scroll length for the journey; chapters are described for assistive tech. -->
+    <main id="journey" class="journey">
+      <h2 class="sr-only">The walkthrough</h2>
+      <ol class="sr-only" id="sr-chapters"></ol>
+    </main>
+
+    <noscript><p class="noscript">This architectural walkthrough needs JavaScript and WebGL.</p></noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "the-art-of-living",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "An interactive, scroll-driven 3D walkthrough of a contemporary Mediterranean villa.",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "check:path": "node tools/check-path.mjs",
+    "shots": "node tools/shoot.mjs"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/jost": "^5.3.0",
+    "gsap": "3.13.0",
+    "lenis": "1.3.11",
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "playwright": "1.56.0",
+    "vite": "^7"
+  }
+}
